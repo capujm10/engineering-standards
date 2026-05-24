@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RepoGovernanceMetadata",
+  "type": "object",
+  "properties": {
+    "repository": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "owner": { "type": "string" },
+        "contact": { "type": "string" }
+      },
+      "required": ["name", "description", "owner"]
+    },
+    "compliance": {
+      "type": "object",
+      "properties": {
+        "license": { "type": "string" },
+        "license_file": { "type": "string" },
+        "security_scans": { "type": "boolean" },
+        "dependency_alerts": { "type": "boolean" }
+      },
+      "required": ["license", "license_file"]
+    },
+    "architecture": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "runtime": { "type": "string" },
+        "framework": { "type": "string" },
+        "database": { "type": "string" }
+      },
+      "required": ["pattern", "runtime"]
+    },
+    "observability": {
+      "type": "object",
+      "properties": {
+        "framework": { "type": "string" },
+        "collector_endpoint": { "type": "string" },
+        "logs": {
+          "type": "object",
+          "properties": {
+            "format": { "type": "string" },
+            "sink": { "type": "string" }
+          }
+        }
+      },
+      "required": ["framework"]
+    },
+    "repository_type": {
+      "type": "string"
+    },
+    "capabilities": {
+      "type": "object",
+      "properties": {
+        "telemetry": {
+          "type": "object",
+          "properties": {
+            "structured_logs": { "type": "boolean" },
+            "metrics": { "type": "boolean" },
+            "executive_summary": { "type": "boolean" }
+          },
+          "required": ["structured_logs", "metrics", "executive_summary"]
+        },
+        "governance": {
+          "type": "object",
+          "properties": {
+            "schema_validation": { "type": "boolean" },
+            "markdownlint": { "type": "boolean" },
+            "taxonomy_enforcement": { "type": "boolean" }
+          },
+          "required": ["schema_validation", "markdownlint", "taxonomy_enforcement"]
+        },
+        "ai_workflows": {
+          "type": "object",
+          "properties": {
+            "reusable_prompts": { "type": "boolean" },
+            "deterministic_reviews": { "type": "boolean" }
+          },
+          "required": ["reusable_prompts", "deterministic_reviews"]
+        }
+      },
+      "required": ["telemetry", "governance", "ai_workflows"]
+    },
+    "maturity": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": [
+            "experimental",
+            "operational",
+            "governed",
+            "observable",
+            "governed-observable",
+            "portfolio-grade",
+            "production-pattern"
+          ]
+        }
+      },
+      "required": ["level"]
+    }
+  },
+  "required": [
+    "repository",
+    "compliance",
+    "architecture",
+    "observability",
+    "repository_type",
+    "capabilities",
+    "maturity"
+  ]
+}

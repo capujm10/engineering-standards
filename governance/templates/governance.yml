@@ -1,0 +1,48 @@
+# governance.yml
+# Spec-Driven Governance Contract for Portfolio Repositories.
+# Copy this to repository roots and adjust values to declare capabilities.
+
+repository:
+  name: "example-repository"
+  description: "A context-efficient description of the repository purpose."
+  owner: "Portfolio Engineering"
+  contact: "engineering@portfolio.local"
+
+compliance:
+  license: "MIT"
+  license_file: "LICENSE"
+  security_scans: true
+  dependency_alerts: true
+
+architecture:
+  pattern: "Stateless CLI"
+  runtime: "Python 3.11"
+  framework: "Typer / Rich"
+  database: "None"
+
+observability:
+  framework: "OpenTelemetry"
+  collector_endpoint: "http://localhost:4317"
+  logs:
+    format: "JSON"
+    sink: "stdout"
+
+repository_type: "operational-governance-platform"
+
+capabilities:
+  telemetry:
+    structured_logs: true
+    metrics: true
+    executive_summary: true
+
+  governance:
+    schema_validation: true
+    markdownlint: true
+    taxonomy_enforcement: true
+
+  ai_workflows:
+    reusable_prompts: true
+    deterministic_reviews: true
+
+maturity:
+  level: "governed-observable"

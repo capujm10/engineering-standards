@@ -1,0 +1,17 @@
+# .cursorrules - Context Optimization Rules for AI Coding Assistants
+
+# Core Directives
+1. **Constraint First**: Before writing code, locate the repository root's `governance.yml` to identify the runtime language, framework patterns, and telemetry contracts. Do not violate this contract.
+2. **Context Preservation**: Avoid generating long architectural explanations in standard chat interfaces unless requested. Use sparse patterns.
+3. **No Overengineering**: Rely on portfolio standards instead of designing custom telemetry abstractions or database integrations.
+
+# Development Standards & Coding Patterns
+- **Observability**: When adding telemetric lines of code, use OpenTelemetry protocols. Align metric names exactly with standard formats (snake_case, prefixed with project identifier).
+- **Security**: Maintain clean separation of secrets. Never hardcode credentials. Use OS-level environmental parsing.
+- **Code Style**:
+  - Keep functions focused and small.
+  - Retain all existing code docstrings, licensing notices, and telemetry comments untouched.
+
+# Document Conventions
+- Keep README updates clean, minimal, and context-sparse. Structure technical specs under nested HTML `<details>` components.
+- Keep Mermaid code clean, structured, and shaded using slate and charcoal colors.
