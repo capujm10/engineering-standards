@@ -1,0 +1,6 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1e293b', 'primaryTextColor': '#f8fafc', 'primaryBorderColor': '#475569', 'lineColor': '#94a3b8', 'secondaryColor': '#0f172a', 'tertiaryColor': '#334155'}}}%%
+graph LR
+    Intent["1. Intent Spec <br>(Define Roadmap)"] --> Contract["2. Contract Metadata <br>(governance.yml)"]
+    Contract --> Validation["3. Validation Gates <br>(validate-repo.py)"]
+    Validation --> Telemetry["4. Telemetry Assertions <br>(Logs/Metrics/Traces)"]
+    Telemetry --> Audit["5. Maturity Grading <br>(RML Level Scoring)"]

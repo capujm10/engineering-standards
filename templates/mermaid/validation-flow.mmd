@@ -1,0 +1,8 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1e293b', 'primaryTextColor': '#f8fafc', 'primaryBorderColor': '#475569', 'lineColor': '#94a3b8', 'secondaryColor': '#0f172a', 'tertiaryColor': '#334155'}}}%%
+graph LR
+    Trigger["Code Change / Commit"] --> CLI["validate-repo.py CLI"]
+    CLI --> Schema["1. Validate governance.yml <br>(JSON Schema Validation)"]
+    Schema --> Files["2. Audit Root Structures <br>(License, rules check)"]
+    Files --> Readme["3. Inspect README Layout <br>(Section parsing)"]
+    Readme --> Spans["4. Verify Telemetry Setup <br>(Collect endpoints)"]
+    Spans --> Success["Exit Code 0 <br>(Approved)"]
