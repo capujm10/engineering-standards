@@ -1,0 +1,6 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1e293b', 'primaryTextColor': '#f8fafc', 'primaryBorderColor': '#475569', 'lineColor': '#94a3b8', 'secondaryColor': '#0f172a', 'tertiaryColor': '#334155'}}}%%
+graph LR
+    Push["Developer Push / PR"] --> Trigger["CI Action Trigger"]
+    Trigger --> Run["validate-repo.py Pipeline"]
+    Run -->|Parse Failure| Block["Merge Blocked (Report drift details)"]
+    Run -->|Parse Success| Merge["Merge Approved (Clean build status)"]

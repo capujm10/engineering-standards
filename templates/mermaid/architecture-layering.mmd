@@ -1,0 +1,5 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1e293b', 'primaryTextColor': '#f8fafc', 'primaryBorderColor': '#475569', 'lineColor': '#94a3b8', 'secondaryColor': '#0f172a', 'tertiaryColor': '#334155'}}}%%
+graph LR
+    Core["Foundation Layer <br>(Engineering Standards SSOT)"] --> Packs["Intermediate Layer <br>(prompts/context-packs/)"]
+    Packs --> Targets["Operational Layer <br>(OpsMate_AI / ops-command-vault)"]
+    Targets --> Downstream["Downstream Layer <br>(Future Repositories)"]

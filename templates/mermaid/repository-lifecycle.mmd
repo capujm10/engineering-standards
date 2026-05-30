@@ -1,0 +1,7 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1e293b', 'primaryTextColor': '#f8fafc', 'primaryBorderColor': '#475569', 'lineColor': '#94a3b8', 'secondaryColor': '#0f172a', 'tertiaryColor': '#334155'}}}%%
+graph LR
+    Experimental["1. Experimental <br>(Active Research)"] --> Operational["2. Operational <br>(Standard Build)"]
+    Operational --> Production["3. Production <br>(Schema Validated)"]
+    Production --> Strategic["4. Strategic <br>(Immutable Baseline)"]
+    Strategic --> Deprecated["5. Deprecated <br>(Security Fix Only)"]
+    Deprecated --> Archived["6. Archived <br>(Read-only / Sealed)"]

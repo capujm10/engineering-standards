@@ -1,0 +1,8 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1e293b', 'primaryTextColor': '#f8fafc', 'primaryBorderColor': '#475569', 'lineColor': '#94a3b8', 'secondaryColor': '#0f172a', 'tertiaryColor': '#334155'}}}%%
+graph LR
+    App["Application Code <br>(Async Runtimes)"] -->|OTLP gRPC:4317| Collector["OpenTelemetry Collector <br>(Local Daemon)"]
+    Collector -->|Distributed Spans| Jaeger["Jaeger <br>(Search & UI)"]
+    Collector -->|Time-Series Metrics| Prometheus["Prometheus <br>(Scraper Engine)"]
+    Collector -->|Structured Streams| Loki["Grafana Loki <br>(JSON Log Index)"]
+    Prometheus -->|Hydrate Dashboards| Grafana["Grafana UI"]
+    Loki -->|Hydrate Dashboards| Grafana

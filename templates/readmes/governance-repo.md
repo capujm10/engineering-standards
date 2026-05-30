@@ -1,7 +1,8 @@
-# Portfolio Engineering Standards Repository
+# [Governance System Name]
 
 [![Standards: Strategic](https://img.shields.io/badge/standards-strategic-brightgreen.svg)](https://github.com/your-username/engineering-standards)
 [![Validation: Schema--Driven](https://img.shields.io/badge/validation-schema--driven-blue.svg)]()
+[![Schema: JSON Schema Draft 7](https://img.shields.io/badge/schema-JSON%20Schema%20v7-darkblue.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Central Single Source of Truth (SSOT) for engineering standards, compliance metadata schemas, editor configuration constraints, and automated verification suites across all portfolio repositories.
@@ -10,26 +11,21 @@ Central Single Source of Truth (SSOT) for engineering standards, compliance meta
 
 ## 🚀 Quick Start
 
-To align an existing codebase with the portfolio engineering standards model:
-
-### 1. Add the Metadata Anchor
-Copy `governance/templates/governance.yml` into your project's root and customize its fields:
+### 1. Validate Target Repository Metadata
 ```bash
-cp governance/templates/governance.yml /path/to/your/repo/governance.yml
+python validation/bin/validate-repo.py --target /path/to/your/repo --schema governance/schemas/governance-schema.json
 ```
 
-### 2. Compress the README
-Replace your project's layout with the standard README template located under `templates/` or any of the specialized templates under `templates/readmes/`, collapsing deep technical sections inside `<details>` blocks.
-
-### 3. Activate Editor Controls
-Copy `.cursorrules` to your project's root to ensure coding assistants follow standardized parameters:
-```bash
-cp .cursorrules /path/to/your/repo/.cursorrules
-```
-
-### 4. Validate Local Compliance
+### 2. Run Comprehensive Compliance Audit
 ```bash
 python validation/bin/validate-repo.py --target /path/to/your/repo --audit --observability
+```
+
+### 3. Install Pre-Commit Hooks
+Add standard validator pipelines to your repository workflow:
+```bash
+cp hooks/pre-commit-standards.sh .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
 ```
 
 ---
@@ -58,7 +54,7 @@ To minimize context token consumption for AI agents and maintain a premium layou
 <details>
 <summary><b>📊 Centralized Governance & Drift Control</b></summary>
 
-Standardized visual flow mapping validation sequences across the portfolio:
+Standardized execution workflow mapping how the validator checks a target project structure and prevents architectural drift:
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1e293b', 'primaryTextColor': '#f8fafc', 'primaryBorderColor': '#475569', 'lineColor': '#94a3b8', 'secondaryColor': '#0f172a', 'tertiaryColor': '#334155'}}}%%
@@ -71,23 +67,19 @@ graph LR
 </details>
 
 <details>
-<summary><b>⚙️ Standards Specifications</b></summary>
+<summary><b>⚙️ Standards Rulesets & Requirements</b></summary>
 
-The portfolio maintains modular specifications under the `specs/` directory:
-* **[specs/operational-intent.md](file:///c:/Users/PERSONAL/Documents/GitHub/engineering-standards/specs/operational-intent.md)**: Product roadmap specs.
-* **[specs/repository-contract.md](file:///c:/Users/PERSONAL/Documents/GitHub/engineering-standards/specs/repository-contract.md)**: Codebase expectations contracts.
-* **[specs/telemetry-guarantee.md](file:///c:/Users/PERSONAL/Documents/GitHub/engineering-standards/specs/telemetry-guarantee.md)**: Runtime logging/metric schemas.
-* **[specs/architecture-constraint.md](file:///c:/Users/PERSONAL/Documents/GitHub/engineering-standards/specs/architecture-constraint.md)**: Threading and API boundaries.
-* **[specs/governance-enforcement.md](file:///c:/Users/PERSONAL/Documents/GitHub/engineering-standards/specs/governance-enforcement.md)**: Pre-commit checks & CI actions.
-* **[specs/ai-workflow-contract.md](file:///c:/Users/PERSONAL/Documents/GitHub/engineering-standards/specs/ai-workflow-contract.md)**: Assistant constraints.
+All portfolio repositories must satisfy the following baseline standards:
+* **Compliance file anchors**: Must possess a root-level `governance.yml` and `LICENSE`.
+* **Editor rulesets**: Must possess `.cursorrules` in their root directory to enforce model constraints.
+* **Maturity level check**: Must declare a recognized maturity level (`experimental`, `operational`, `production`, etc.) corresponding directly with validation rigor.
 </details>
 
 ---
 
-## ⚖️ Governance & Policy
+## ⚖️ Governance & Compliance
 
 This repository conforms strictly to the portfolio engineering standards. All pull requests are checked for drift using the central verification suite:
 ```bash
 python validation/bin/validate-repo.py --target ./ --observability
 ```
-All standard models and schema engines in this repository are licensed under the **MIT License**. For security alerts or policy adjustments, contact Portfolio Engineering.
